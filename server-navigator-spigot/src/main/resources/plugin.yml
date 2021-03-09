@@ -1,0 +1,10 @@
+name: ServerNavigator
+authors:
+  - NyCode
+api-version: 1.13
+version: 1.0.0-SNAPSHOT
+main: de.nycode.servernavigator.platform.spigot.ServerNavigatorPlugin
+
+commands:
+  servernavigator:
+    aliases: [ sv ]

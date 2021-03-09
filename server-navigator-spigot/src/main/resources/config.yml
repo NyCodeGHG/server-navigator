@@ -1,0 +1,14 @@
+# The provider used for fetching servers
+provider: file
+
+# Provider specific settings
+# The settings below are only applied when you selected the specific provider they are targeting
+
+# File Specific
+provider-file:
+  # The file will be placed in the Plugin's Configuration Directory
+  file-name: servers.json
+
+provider-pterodactyl:
+  host: https://mc.panel.schlaubi.net
+  api-key: ''

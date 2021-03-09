@@ -1,0 +1,4 @@
+GET {{ host }}/servers/df3a7011/resources
+Authorization: Bearer {{ api-key }}
+Content-Type: application/json
+Accept: application/json

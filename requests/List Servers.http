@@ -1,0 +1,4 @@
+GET {{ host }}
+Authorization: Bearer {{ api-key }}
+Content-Type: application/json
+Accept: Application/vnd.pterodactyl.v1+json
