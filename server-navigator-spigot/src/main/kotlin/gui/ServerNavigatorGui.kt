@@ -7,6 +7,7 @@ import de.nycode.servernavigator.platform.spigot.item.head
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.bukkit.Bukkit
+import org.bukkit.ChatColor
 import org.bukkit.ChatColor.*
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -28,7 +29,7 @@ class ServerNavigatorGui(private val plugin: ServerNavigatorPlugin) : Listener {
                 servers = plugin.provider.getServers().sortedBy { it.name }
                 inventories.keys.forEach { updateInventory(it) }
             }
-        }, 0, 20 * 5)
+        }, 0, 20)
     }
 
     fun openGui(player: Player) {
@@ -125,24 +126,35 @@ class ServerNavigatorGui(private val plugin: ServerNavigatorPlugin) : Listener {
             }
         )
 
-//        if (online) {
-//            lore.add(BLUE.toString())
-//            lore.add("${BLUE}Server Ressourcen")
-//            lore.add("${GRAY}CPU-Auslastung: ${BLUE}${resources.cpu.first / (resources.cpu.last / 100)}%")
-//
-//            val memory = resources.memory.map { it / 1000.0 / 1000.0 / 1000.0 }.map { String.format("%.2f", it) }
-//            lore.add("${GRAY}RAM-Verbrauch: ${BLUE}${memory.first()} MB / ${memory.last()} MB")
-//
-//            val disk = resources.disk.map { it / 1000.0 / 1000.0 / 1000.0 / 1000.0 }.map { String.format("%.5f", it) }
-//            lore.add("${GRAY}Festplatte: ${BLUE}${disk.first()} GB / ${disk.last()} GB")
-//
-//            lore.add(BLUE.toString())
-//
-//            val (_, _, _, transmit, receive) = resources
-//            lore.add("${BLUE}Netzwerk")
-//            lore.add("${GRAY}Empfangen: ${receive / 1000.0} KB")
-//            lore.add("${GRAY}Gesendet: ${transmit / 1000.0} KB")
-//        }
+        if (online) {
+
+            lore.add(BLUE.toString())
+            lore.add("${BLUE}Server Ressourcen")
+            lore.add("${GRAY}CPU-Auslastung: ${BLUE}${resources?.cpu?.first}%")
+
+            lore.add(
+                "${GRAY}Arbeitsspeicher: ${BLUE}${
+                    String.format(
+                        "%.2f",
+                        resources?.memory?.first?.div(1000000.0)
+                    )
+                } MB"
+            )
+            lore.add(
+                "${AQUA}von ${BLUE}${String.format("%.2f", resources?.memory?.last?.div(1000000.0))} MB"
+            )
+
+            val percentage =
+                resources?.disk?.first?.toDouble()?.div(resources?.disk?.last?.toDouble() ?: return@buildItem)
+            lore.add(
+                "${GRAY}Festplatte: ${BLUE}${
+                    String.format(
+                        "%.2f",
+                        percentage?.times(100.0)
+                    )
+                }% ${AQUA}von ${BLUE}${resources?.disk?.last?.div(1000000000.0)} GB"
+            )
+        }
     }
 
     @EventHandler
