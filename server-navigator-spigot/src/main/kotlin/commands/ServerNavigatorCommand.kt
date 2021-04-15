@@ -1,8 +1,6 @@
 package de.nycode.servernavigator.platform.spigot.commands
 
 import de.nycode.servernavigator.platform.spigot.ServerNavigatorPlugin
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -13,7 +11,7 @@ class ServerNavigatorCommand(private val serverNavigatorPlugin: ServerNavigatorP
         if (sender !is Player) {
             return true
         }
-        serverNavigatorPlugin.gui.openGui(sender)
+        serverNavigatorPlugin.navigatorGui.openGui(sender)
         return true
     }
 }

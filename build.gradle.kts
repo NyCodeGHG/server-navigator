@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version BuildConstants.KOTLIN_VERSION apply false
     kotlin("plugin.serialization") version BuildConstants.KOTLIN_VERSION apply false
+    kotlin("kapt") version BuildConstants.KOTLIN_VERSION apply false
     shadow version "6.1.0" apply false
 }
 

@@ -1,5 +1,4 @@
 import org.gradle.api.artifacts.dsl.RepositoryHandler
-import org.gradle.kotlin.dsl.TaskContainerScope
 import org.gradle.kotlin.dsl.maven
 import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
@@ -14,3 +13,6 @@ fun RepositoryHandler.spigot() = maven("https://hub.spigotmc.org/nexus/content/r
 fun RepositoryHandler.paper() = maven("https://papermc.io/repo/repository/maven-public/")
 
 fun RepositoryHandler.minecraftLibraries() = maven("https://libraries.minecraft.net/")
+
+fun RepositoryHandler.velocity() = maven("https://nexus.velocitypowered.com/repository/maven-public/")
+

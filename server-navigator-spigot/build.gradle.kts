@@ -16,6 +16,9 @@ dependencies {
     implementation(project(":server-navigator-core"))
     implementation(project(":server-navigator-provider"))
     implementation("io.papermc", "paperlib", "1.0.6")
+    implementation("net.kyori", "adventure-platform-bukkit", "4.0.0-SNAPSHOT")
+    implementation("net.kyori", "adventure-api", "4.7.0")
+    implementation("net.kyori", "adventure-extra-kotlin", "4.7.0")
 }
 
 tasks {

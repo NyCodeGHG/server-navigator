@@ -17,7 +17,7 @@ data class ServerInformation(
     @Serializable(with = UUIDtoStringSerializer::class)
     val uuid: UUID,
     val name: String,
-    val online: Boolean,
+    val isRunning: Boolean,
     val networkName: String,
     val description: String,
     val isInstalling: Boolean = false,
